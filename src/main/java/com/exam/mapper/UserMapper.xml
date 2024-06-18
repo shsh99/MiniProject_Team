@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exam.mapper.UserMapper">
+
+	<!-- Insert a new user -->
+	<insert id="save" parameterType="User">
+		INSERT INTO tb_user (login_id, password, name, birth_date, email, phone,
+		role)
+		VALUES (#{login_id}, #{password}, #{name}, #{birth_date}, #{email},
+		#{phone}, #{role})
+	</insert>
+
+	<!-- Select user by ID -->
+	<select id="findById" parameterType="int"
+		resultType="User">
+		SELECT id, login_id, password, name, birth_date, email, phone, role
+		FROM tb_user
+		WHERE id = #{id}
+	</select>
+
+	<!-- Update user -->
+	<update id="update" parameterType="User">
+		UPDATE tb_user
+		SET login_id = #{login_id},
+		password = #{password},
+		name = #{name},
+		birth_date = #{birth_date},
+		email = #{email},
+		phone = #{phone},
+		role = #{role}
+		WHERE id = #{id}
+	</update>
+
+	<!-- Delete user by ID -->
+	<delete id="delete" parameterType="int">
+		DELETE FROM tb_user
+		WHERE id = #{id}
+	</delete>
+</mapper>
+
