@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"
+	rel="stylesheet">
 <style>
 .container {
 	display: flex;

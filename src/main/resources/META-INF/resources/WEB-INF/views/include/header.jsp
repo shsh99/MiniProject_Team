@@ -38,8 +38,8 @@
 				</ul>
 				<form class="d-flex mx-auto"
 					style="width: 70%; justify-content: center;">
-					<input class="form-control me-2" type="search" placeholder="Search"
-						aria-label="Search">
+					<input class="form-control me-2" type="search" id="searchField"
+						name="searchField" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success" type="submit">Search</button>
 				</form>
 
@@ -47,29 +47,59 @@
 			<ul class="navbar-nav">
 				<!-- 인증이 안된 사용자 -->
 				<sec:authorize access="isAnonymous()">
-					<li class="nav-item"><a class="nav-link" href="login">login / signup</a></li>
-					<!-- <li class="nav-item"><a class="nav-link" href="signup">signup</a></li> -->
+					<li class="nav-item"><a class="nav-link" href="login">login</a></li>
+					<li class="nav-item"><a class="nav-link" href="signup">signup</a></li>
 				</sec:authorize>
 				<!-- 인증이 된 사용자 -->
 				<sec:authorize access="isAuthenticated()">
-					<li class="nav-item"><a class="nav-link" href="logout">logout</a></li>
-					<li class="nav-item"><a class="nav-link" href="mypage">mypage</a></li>
+
+					<!-- 관리자 권한을 가진 사용자만 보이는 항목 -->
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownAdmin" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">관리자 메뉴</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
+								<li><a class="dropdown-item" href="#">강의 관리</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">회원 관리</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="logout">logout</a></li>
+							</ul></li>
+					</sec:authorize>ㄴ
+					<!-- 마이페이지 항목 -->
+					<sec:authorize access="!hasRole('ROLE_ADMIN')">
+						<li class="nav-item"><a class="nav-link" href="cart">cart</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarDropdownMypage" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">마이페이지</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMypage">
+								<li><a class="dropdown-item" href="#">내 정보</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">구매 내역</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">문의 내역</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="logout">logout</a></li>
+							</ul></li>
+					</sec:authorize>
 				</sec:authorize>
 			</ul>
 		</div>
 	</nav>
 	<div class="alert alert-dark" role="alert">
 		감사 할인 특가 이벤트, 인기 강의 30% 할인!<a href="#" class="alert-link"
-			style="margin-right: 200px; text-decoration: none;"> 자세히 보기 </a> 기본부터 실무까지! 현업 개발자에게 배우는 웹
-		개발<a href="#" class="alert-link" style="text-decoration: none;"> 자세히 보기 </a>
+			style="margin-right: 200px; text-decoration: none;"> 자세히 보기 </a> 기본부터
+		실무까지! 현업 개발자에게 배우는 웹 개발<a href="#" class="alert-link"
+			style="text-decoration: none;"> 자세히 보기 </a>
 	</div>
 	<!-- Bootstrap JS 및 Popper.js 추가 -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+
 	<script>
 		function dropdownToggleHandler() {
 			$('.dropdown-toggle').on('click', function(e) {
