@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
+ <!-- 로그인 폼 수정-->
 
 <div class="container">
     <form class="row g-3 m-4" action="auth" method="post">
