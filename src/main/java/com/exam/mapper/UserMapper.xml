@@ -5,39 +5,58 @@
 
 <mapper namespace="com.exam.mapper.UserMapper">
 
+	<select id="login" parameterType="hashmap" resultType="User"> select *
+		from tb_user where login_id=#{login_id} and
+		password=#{password}
+	</select>
+
+	<select id="idCheck" parameterType="string" resultType="User">
+		select * from tb_user where login_id=#{login_id}
+	</select>
+
 	<!-- Insert a new user -->
 	<insert id="save" parameterType="User">
-		INSERT INTO tb_user (login_id, password, name, birth_date, email, phone,
+		INSERT INTO tb_user (login_id,
+		password, name, birth_date, email, phone,address1,address2,
 		role)
-		VALUES (#{login_id}, #{password}, #{name}, #{birth_date}, #{email},
-		#{phone}, #{role})
+		VALUES
+		(#{login_id},
+		#{password}, #{name}, #{birth_date}, #{email},
+		#{phone},#{address1},#{address2}, #{role})
 	</insert>
 
 	<!-- Select user by ID -->
-	<select id="findById" parameterType="int"
-		resultType="User">
-		SELECT id, login_id, password, name, birth_date, email, phone, role
-		FROM tb_user
+	<select id="findById" parameterType="int" resultType="User">
+		SELECT id,
+		login_id, password, name, birth_date, email, phone, address1,address2, role
+		FROM
+		tb_user
 		WHERE id = #{id}
 	</select>
 
 	<!-- Update user -->
 	<update id="update" parameterType="User">
 		UPDATE tb_user
-		SET login_id = #{login_id},
+		SET login_id =
+		#{login_id},
 		password = #{password},
 		name = #{name},
-		birth_date = #{birth_date},
+		birth_date =
+		#{birth_date},
 		email = #{email},
 		phone = #{phone},
+		address1 = #{address1},
+		address2 = #{address2},
 		role = #{role}
-		WHERE id = #{id}
+		WHERE id
+		= #{id}
 	</update>
 
 	<!-- Delete user by ID -->
 	<delete id="delete" parameterType="int">
 		DELETE FROM tb_user
-		WHERE id = #{id}
+		WHERE id =
+		#{id}
 	</delete>
 </mapper>
 

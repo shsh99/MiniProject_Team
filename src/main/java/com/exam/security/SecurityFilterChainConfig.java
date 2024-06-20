@@ -9,36 +9,31 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityFilterChainConfig {
 
 	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-		
-		//커스터마이징 처리
-		
-		//1. 불필요한 인증제거
-		http.authorizeRequests()
-		    .antMatchers("/login","/home","/signup","/webjars/**","/images/**").permitAll()
-		    .anyRequest()
-		    .authenticated();
-		
-		//2. 로그인 관련 작업
-		http.csrf().disable();
-		
-		http.formLogin()     // 사용자가 만든 로그인화면으로 인증처리 하겠음.
-		    .loginPage("/login") // 로그인 페이지로 갈수 있는 요청맵핑값 <a href="login">로그인
-		    .loginProcessingUrl("/auth") // <form  action="auth"  method="post"
-		    .usernameParameter("userid")    // <input name="userid">
-		    .passwordParameter("passwd")       // <input name="passwd">
-		    .failureForwardUrl("/login_fail")        // 로그인 실패시 리다이렉트되는 요청맵핑값
-//		    .successForwardUrl("/login_success");    // post 지원안됨.    
-		    .defaultSuccessUrl("/login_success", true); // 로그인 성공시 리다이렉트되는 요청맵핑값
-	     //3. csrf 비활성화
-		
-		
-		 //4. 로그아웃 관련 작업
-		 http.logout()
-		     .logoutUrl("/logout")   // security가 자동으로 로그아웃 처리해주는 요청맵핑값
-		     .logoutSuccessUrl("/home");  // logout 성공시 리다이렉트 되는 요청맵핑값
-		     
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+		http
+				// HTTP 보안 설정
+				.authorizeRequests()
+				// 누구나 접근할 수 있는 URL 설정
+				.antMatchers("/login", "/home", "/signup", "/webjars/**", "/images/**", "/idCheck").permitAll()
+				 .antMatchers("/admin/**").hasAuthority("ADMIN") // ADMIN 권한이 있는 사용자만 접근 가능한 URL
+				// 나머지 URL은 인증을 요구함
+				.anyRequest().authenticated().and()
+				// 로그인 설정
+				.formLogin().loginPage("/login") // 로그인 페이지 URL 설정
+				.loginProcessingUrl("/auth") // 로그인 처리 URL 설정
+				.usernameParameter("login_id") // 로그인 폼에서 사용자명 파라미터 이름 설정
+				.passwordParameter("password") // 로그인 폼에서 비밀번호 파라미터 이름 설정
+				.failureForwardUrl("/login_fail") // 로그인 실패 시 이동할 URL 설정
+				.defaultSuccessUrl("/login_success", true) // 로그인 성공 시 기본 이동할 URL 설정
+				.permitAll().and()
+				// CSRF 설정 비활성화
+				.csrf().disable()
+
+				// 로그아웃 설정
+				.logout().logoutUrl("/logout") // 로그아웃 처리 URL 설정
+				.logoutSuccessUrl("/home") // 로그아웃 성공 시 이동할 URL 설정
+				.permitAll();
+
 		return http.build();
 	}
-	
 }

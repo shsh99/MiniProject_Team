@@ -66,7 +66,7 @@
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="logout">logout</a></li>
 							</ul></li>
-					</sec:authorize>ㄴ
+					</sec:authorize>
 					<!-- 마이페이지 항목 -->
 					<sec:authorize access="!hasRole('ROLE_ADMIN')">
 						<li class="nav-item"><a class="nav-link" href="cart">cart</a></li>

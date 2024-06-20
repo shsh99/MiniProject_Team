@@ -1,5 +1,7 @@
 package com.exam.service.user;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
 
 import com.exam.dto.user.UserDTO;
@@ -36,6 +38,18 @@ public class UserServiceImpl implements UserService {
 	public int delete(int id) {
 
 		return userMapper.delete(id);
+	}
+
+	@Override
+	public UserDTO idCheck(String login_id) {
+		
+		return userMapper.idCheck(login_id);
+	}
+
+	@Override
+	public UserDTO login(Map<String, String> map) {
+		
+		return userMapper.login(map);
 	}
 
 }
