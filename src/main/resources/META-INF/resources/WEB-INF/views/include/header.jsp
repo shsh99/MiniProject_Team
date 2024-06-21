@@ -60,6 +60,8 @@
 							id="navbarDropdownAdmin" role="button" data-bs-toggle="dropdown"
 							aria-expanded="false">관리자 메뉴</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
+							<li><a class="dropdown-item" href="mypage">관리자 정보</a></li>
+								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="#">강의 관리</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="#">회원 관리</a></li>
@@ -75,7 +77,7 @@
 							id="navbarDropdownMypage" role="button" data-bs-toggle="dropdown"
 							aria-expanded="false">마이페이지</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMypage">
-								<li><a class="dropdown-item" href="#">내 정보</a></li>
+								<li><a class="dropdown-item" href="mypage">내 정보</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="#">구매 내역</a></li>
 								<li><hr class="dropdown-divider"></li>

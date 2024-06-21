@@ -14,7 +14,7 @@ public interface UserService {
 
 	public UserDTO findById(int id);
 
-	public int update(UserDTO user);
+	public void update(UserDTO user);
 
 	public int delete(int id);
 

@@ -28,6 +28,7 @@ footer {
 </head>
 <body>
 	<div class="App">
+	
 		<!-- header 보여주기 -->
 		<jsp:include page="include/header.jsp" />
 
@@ -36,6 +37,7 @@ footer {
 
 		<!-- footer 보여주기 -->
 		<jsp:include page="include/footer.jsp" />
+		
 	</div>
 </body>
 </html>

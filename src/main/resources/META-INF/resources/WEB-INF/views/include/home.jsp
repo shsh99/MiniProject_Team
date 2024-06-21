@@ -21,13 +21,15 @@
 
 
 </style>
+
 <div class="TodoApp">
 	<div class="container">
-		<div class="back-image back-image1">
-	
-		</div>
-		<div class="back-image back-image2">
 		
-		</div>
 	</div>
 </div>
+
+
+
+
+
+
