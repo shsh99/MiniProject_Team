@@ -32,7 +32,8 @@ footer {
 		<jsp:include page="include/header.jsp" />
 
 		<!-- content 보여주기 -->
-		<jsp:include page="include/home.jsp" />
+
+		<jsp:include page="course/courseList.jsp" />
 
 		<!-- footer 보여주기 -->
 		<jsp:include page="include/footer.jsp" />
