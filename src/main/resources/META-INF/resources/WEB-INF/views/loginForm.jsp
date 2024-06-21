@@ -33,6 +33,7 @@ footer {
 
 		<!-- content 보여주기 -->
 	
+		<!--<jsp:include page="include/loginForm.jsp" />-->
 		<jsp:include page="include/loginForm.jsp" />
 		<!-- footer 보여주기 -->
 		<jsp:include page="include/footer.jsp" />
