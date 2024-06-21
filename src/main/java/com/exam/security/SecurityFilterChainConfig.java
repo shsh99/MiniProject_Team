@@ -14,7 +14,7 @@ public class SecurityFilterChainConfig {
 				// HTTP 보안 설정
 				.authorizeRequests()
 				// 누구나 접근할 수 있는 URL 설정
-				.antMatchers("/login", "/home", "/signup", "/webjars/**", "/images/**", "/idCheck").permitAll()
+				.antMatchers("/login", "/home", "/signup", "/webjars/**", "/images/**", "/idCheck", "/courseRetrieve	").permitAll()
 				 .antMatchers("/admin/**").hasAuthority("ADMIN") // ADMIN 권한이 있는 사용자만 접근 가능한 URL
 				// 나머지 URL은 인증을 요구함
 				.anyRequest().authenticated().and()

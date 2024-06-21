@@ -26,13 +26,13 @@
 						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 						role="button" data-bs-toggle="dropdown" aria-expanded="false">강의</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="#">전체 강의</a></li>
+							<li><a class="dropdown-item" href="home">전체 강의</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">개발 프로그래밍</a></li>
+							<li><a class="dropdown-item" href="home?category=front">프론트</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">웹 개발</a></li>
+							<li><a class="dropdown-item" href="home?category=back">백</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">기타</a></li>
+							<li><a class="dropdown-item" href="home?saleOnly=true">세일</a></li>
 						</ul></li>
 					<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
 				</ul>
@@ -69,7 +69,7 @@
 					</sec:authorize>
 					<!-- 마이페이지 항목 -->
 					<sec:authorize access="!hasRole('ROLE_ADMIN')">
-						<li class="nav-item"><a class="nav-link" href="cart">cart</a></li>
+						<li class="nav-item"><a class="nav-link" href="cartList">cart</a></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#"
 							id="navbarDropdownMypage" role="button" data-bs-toggle="dropdown"
