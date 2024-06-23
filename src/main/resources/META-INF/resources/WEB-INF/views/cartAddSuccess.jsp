@@ -3,5 +3,5 @@
 <!-- 로그인 작업이 선행되어야하는 경고창 -->
 <script>
    alert("Cart 저장 성공");
-   location.href="../home";
+   location.href="./cartList";
 </script>

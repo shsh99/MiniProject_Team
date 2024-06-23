@@ -25,7 +25,7 @@ import com.exam.service.user.UserService;
 @Controller
 public class UserController {
 
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	Logger logger = LoggerFactory.getLogger(getClass());
 
 	UserService userService;
 

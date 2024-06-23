@@ -6,7 +6,8 @@
 <mapper namespace="com.exam.mapper.CartMapper">
 	<!-- 장바구니 추가 -->
 	<insert id="cartAdd" parameterType="CartDTO"> insert into TB_CART (us_id,
-		cs_id) values (#{us_id}, #{cs_id}) </insert>
+		cs_id) values (#{us_id}, #{cs_id})
+	</insert>
 	<!-- 조인 -->
 	<resultMap type="CartDTO" id="yyy">
 		<id property="id" column="id" />
@@ -28,9 +29,25 @@
 		</collection>
 	</resultMap>
 	<!-- 장바구니 조회 -->
-	<select id="cartList" parameterType="int" resultMap="yyy"> select *
+	<select id="cartList" parameterType="int" resultMap="yyy">
+		select *
 		from TB_CART join TB_COURSE on TB_CART.cs_id = TB_COURSE.id where
-		us_id=#{us_id} </select>
+		us_id=#{us_id}
+	</select>
+
+	<!-- 장바구니 삭제 -->
+	<delete id="deleteCart" parameterType="CartDTO">
+		delete
+		from TB_CART
+		where id
+		= ${id}
+	</delete>
+
+	<!-- 장바구니 전체 삭제 -->
+	<delete id="deleteAllCart" parameterType="CartDTO">
+		delete
+		from TB_CART
+	</delete>
 </mapper>
 
 

@@ -22,7 +22,7 @@ import com.exam.service.user.UserService;
 @SessionAttributes("login")
 public class LoginController {
 
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	Logger logger = LoggerFactory.getLogger(getClass());
 
 	UserService userService;
 

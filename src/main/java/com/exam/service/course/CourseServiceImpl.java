@@ -26,4 +26,28 @@ public class CourseServiceImpl implements CourseService{
 		return courseMapper.courseRetrieve(id);
 	}
 
+	@Override
+	public int addCourse(CourseDTO dto) {
+		return courseMapper.addCourse(dto);
+	}
+
+	@Override
+	public int updateCourse(CourseDTO dto) {
+		return courseMapper.updateCourse(dto);
+	}
+
+	@Override
+	public int deleteCourse(CourseDTO dto) {
+		return courseMapper.deleteCourse(dto);
+	}
+
+	@Override
+	public int deleteAllCourse(CourseDTO dto) {
+		return courseMapper.deleteAllCourse(dto);
+
+	}
+	
+
+
+
 }

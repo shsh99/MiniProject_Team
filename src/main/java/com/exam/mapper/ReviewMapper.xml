@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exam.mapper.ReviewMapper">
+
+	<!-- 리뷰 등록 -->
+	<insert id="reviewAdd" parameterType="ReviewDTO">
+		INSERT INTO TB_REVIEW
+		(us_id, cs_id, date, re_title, content, rating)
+		VALUES (#{us_id},
+		#{cs_id}, #{date}, #{re_title}, #{content}, #{rating})
+	</insert>
+
+
+	<!-- 리뷰 정보 조회용 ResultMap 정의 -->
+	<resultMap type="ReviewDTO" id="zzz">
+		<id property="id" column="id" />
+		<result property="us_id" column="us_id" />
+		<result property="cs_id" column="cs_id" />
+		<result property="date" column="date" />
+		<result property="re_title" column="re_title" />
+		<result property="content" column="content" />
+		<result property="rating" column="rating" />
+		<result property="login_id" column="login_id" />
+		<!-- 1:N -->
+		<collection property="courseList" ofType="java.util.Map">
+			<id property="id" column="id" />
+			<result property="title" column="title" />
+			<result property="name" column="name" />
+			<result property="period" column="period" />
+			<result property="price" column="price" />
+			<result property="introduction" column="introduction" />
+			<result property="link" column="link" />
+			<result property="image" column="image" />
+			<result property="sale" column="sale" />
+			<result property="session" column="session" />
+			<result property="category" column="category" />
+		</collection>
+	</resultMap>
+
+	<select id="allReviewList" resultMap="zzz">
+		SELECT *
+		FROM TB_REVIEW 
+		join TB_COURSE on TB_Review.cs_id = TB_COURSE.id
+		join TB_USER on TB_Review.us_id = TB_USER.id
+	</select>
+	
+	<!-- 리뷰 조회 -->
+	<select id="reviewList" parameterType="int" resultMap="zzz">
+		select *
+		from TB_Review
+		join TB_COURSE on TB_Review.cs_id = TB_COURSE.id 
+		where cs_id=#{cs_id}
+	</select>
+	
+	<!-- 리뷰 중복 조회 -->
+	<select id="reviewList2" parameterType="int" resultMap="zzz">
+		select *
+		from TB_Review
+		join TB_COURSE on TB_Review.cs_id = TB_COURSE.id 
+		where us_id=#{us_id}
+	</select>
+
+	<!-- 리뷰 삭제 -->
+	<delete id="deleteReview" parameterType="ReviewDTO">
+		DELETE FROM TB_REVIEW
+		WHERE id = #{id}
+	</delete>
+
+
+
+
+
+</mapper>

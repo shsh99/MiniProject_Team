@@ -40,10 +40,51 @@
    </select>
    
    <!-- 강의 추가 -->
-	
+	<insert id="addCourse" parameterType="CourseDTO">
+     insert into TB_COURSE (
+     		id,
+     		title,
+     		name,
+     		period,
+     		price,
+     		introduction,
+     		link,
+            image,
+            sale,
+            session,
+            category)
+     values (#{id}, #{title},#{name},#{period},#{price},#{introduction},#{link},#{image},#{sale},#{session},#{category})
+   </insert>
+   
    <!-- 강의 수정 -->
+    <update id="updateCourse" parameterType="CourseDTO">
+        update TB_COURSE
+        set 
+            title = #{title},
+            name = #{name},
+            period = #{period},
+            price = #{price},
+            introduction = #{introduction},
+            link = #{link},
+            image = #{image},
+            sale = #{sale},
+            session = #{session},
+            category = #{category}
+        where id = #{id}
+    </update>
 
    <!-- 강의 삭제 -->
+   <delete id="deleteCourse" parameterType="CourseDTO">
+   delete 
+   from TB_COURSE
+   where id = #{id}
+   </delete>
+   
+   <!-- 강의 전체 삭제 -->
+   <delete id="deleteAllCourse" parameterType="CourseDTO">
+   delete
+   from TB_COURSE
+   </delete>
 
 </mapper>
 

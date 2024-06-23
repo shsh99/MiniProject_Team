@@ -17,14 +17,15 @@ import com.exam.service.course.CourseService;
 @Controller
 public class HomeController {
     
-    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+    Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-    private final CourseService courseService;
+    CourseService courseService;
 
     public HomeController(CourseService courseService) {
         this.courseService = courseService;
     }
-
+    
+    // 기본 페이지
     @GetMapping("/home")
     public String home(@RequestParam(required = false) String category,
                        @RequestParam(required = false) Boolean saleOnly,
@@ -32,7 +33,7 @@ public class HomeController {
         
         List<CourseDTO> courseList = new ArrayList<>();
         
-        // 전체 강의 목록 조회
+        // 카테고리 분류
         if (category == null || "all".equals(category)) {
             courseList.addAll(courseService.courseList("front"));
             courseList.addAll(courseService.courseList("back"));
@@ -40,7 +41,7 @@ public class HomeController {
             courseList.addAll(courseService.courseList(category));
         }
         
-        // saleOnly가 true이면 sale이 0보다 큰 강의만 필터링
+        // 세일 분류
         if (saleOnly != null && saleOnly) {
             courseList = courseList.stream()
                                    .filter(course -> course.getSale() > 0)

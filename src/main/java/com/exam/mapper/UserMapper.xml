@@ -13,6 +13,10 @@
 	<select id="idCheck" parameterType="string" resultType="User">
 		select * from tb_user where login_id=#{login_id}
 	</select>
+	
+	<select id="findUserName" parameterType="string" resultType="User">
+		select name from tb_user where login_id=#{login_id}
+	</select>
 
 	<!-- Insert a new user -->
 	<insert id="save" parameterType="User">

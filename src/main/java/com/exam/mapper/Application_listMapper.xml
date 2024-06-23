@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exam.mapper.Application_listMapper">
+	<!-- 장바구니 추가 -->
+	<insert id="applicationAdd" parameterType="Application_listDTO">
+		insert into TB_APPLICATION_LIST (us_id, cs_id, application_date) values (#{us_id}, #{cs_id}, #{application_date})
+	</insert>
+
+	<!-- 조인 -->
+	<resultMap type="Application_listDTO" id="yyy">
+		<id property="id" column="id" />
+		<result property="us_id" column="us_id" />
+		<result property="cs_id" column="cs_id" />
+		<result property="application_date" column="application_date" />
+		<result property="user_name" column="user_name" /> <!-- 유저 이름 매핑 추가 -->
+
+
+		<!-- 1:N -->
+		<collection property="courseList"
+			ofType="com.exam.dto.course.CourseDTO"> <!-- 수정: java.util.Map -> com.exam.dto.course.CourseDTO -->
+			<id property="id" column="id" />
+			<result property="title" column="title" />
+			<result property="name" column="name" />
+			<result property="period" column="period" />
+			<result property="price" column="price" />
+			<result property="introduction" column="introduction" />
+			<result property="link" column="link" />
+			<result property="image" column="image" />
+			<result property="sale" column="sale" />
+			<result property="session" column="session" />
+			<result property="category" column="category" />
+		</collection>
+	</resultMap>
+
+	<!-- 장바구니 조회 -->
+	<select id="applicationList" parameterType="int" resultMap="yyy">
+		SELECT
+		TB_APPLICATION_LIST.id AS id,
+		TB_APPLICATION_LIST.us_id AS us_id,
+		TB_APPLICATION_LIST.cs_id AS cs_id,
+		TB_APPLICATION_LIST.application_date,
+		TB_USER.name AS user_name, <!-- 유저 이름 추가 -->
+		TB_COURSE.id AS course_id, <!-- 추가: CourseDTO에 id 매핑을 위해 필요 -->
+		TB_COURSE.title,
+		TB_COURSE.name,
+		TB_COURSE.period,
+		TB_COURSE.price,
+		TB_COURSE.introduction,
+		TB_COURSE.link,
+		TB_COURSE.image,
+		TB_COURSE.sale,
+		TB_COURSE.session,
+		TB_COURSE.category
+		FROM
+		TB_APPLICATION_LIST
+		JOIN
+		TB_USER ON TB_APPLICATION_LIST.us_id = TB_USER.id <!-- 유저 테이블과 조인 -->
+		JOIN
+		TB_COURSE ON TB_APPLICATION_LIST.cs_id = TB_COURSE.id
+		WHERE
+		TB_APPLICATION_LIST.us_id = #{us_id}
+	</select>
+
+	<!-- 장바구니 삭제 -->
+	<delete id="deleteApplication"
+		parameterType="Application_listDTO">
+		delete from TB_APPLICATION_LIST where id = ${id}
+	</delete>
+
+	<!-- 장바구니 전체 삭제 -->
+	<delete id="deleteAllApplication"
+		parameterType="Application_listDTO">
+		delete from TB_APPLICATION_LIST
+	</delete>
+</mapper>
