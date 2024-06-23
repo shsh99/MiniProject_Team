@@ -73,6 +73,12 @@ public class Application_listController {
         return "applicationAddFail"; // JSP 파일의 경로와 이름
     }
     
+ // 장바구니 추가 성공 페이지 이동
+    @GetMapping("/applicationAddFail2")
+    public String applicationAddFail2() {
+        return "applicationAddFail2"; // JSP 파일의 경로와 이름
+    }
+    
     // 장바구니 페이지 이동
     @GetMapping("/applicationList")
     public String applicationList(ModelMap model) {

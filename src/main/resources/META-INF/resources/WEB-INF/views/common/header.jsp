@@ -70,7 +70,7 @@
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
 								<li><a class="dropdown-item" href="mypage">관리자 정보</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#">강의 관리</a></li>
+								<li><a class="dropdown-item" href="adminCourseList">강의 관리</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="adminUserList">회원 관리</a></li>
 								<li><hr class="dropdown-divider"></li>
@@ -87,9 +87,7 @@
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMypage">
 								<li><a class="dropdown-item" href="mypage">내 정보</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#">구매 내역</a></li>
-								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#">문의 내역</a></li>
+								<li><a class="dropdown-item" href="applicationList">수강 목록</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="logout">logout</a></li>
 							</ul></li>

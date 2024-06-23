@@ -145,7 +145,7 @@ public class CourseController {
 			redirectAttributes.addFlashAttribute("message", "강의 수정에 실패했습니다.");
 		}
 
-		return "redirect:/home"; // 수정 후에 메인 페이지로 리다이렉트
+		return "redirect:/adminCourseList"; // 수정 후에 메인 페이지로 리다이렉트
 	}
 
 	// 강의 삭제 처리
@@ -162,7 +162,7 @@ public class CourseController {
 			redirectAttributes.addFlashAttribute("message", "강의 추가에 실패했습니다.");
 		}
 
-		return "redirect:/home";
+		return "redirect:/adminCourseList";
 	}
 
 	// 강의 전체 삭제 처리

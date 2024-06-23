@@ -9,7 +9,6 @@
 				$("#applicationForm").on(
 						"submit",
 						function() {
-							// alert("수강신청 submit"); // 테스트용 alert
 							var form = this;
 							// Ajax 또는 fetch API를 사용하여 수강 신청 처리
 
@@ -29,7 +28,6 @@
 
 <div class="TodoApp">
 	<div class="container">
-	${cartList}
 			<h2>카트 목록</h2>
 		<div>
 			<table class="table">

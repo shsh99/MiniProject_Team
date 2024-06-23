@@ -28,8 +28,8 @@
 </head>
 <body>
  <div class="App">
-	<jsp:include page="include/header.jsp" flush="true" /><br>
-	<jsp:include page="include/footer.jsp" flush="true" />
+	<jsp:include page="common/header.jsp" flush="true" /><br>
+	<jsp:include page="common/footer.jsp" flush="true" />
 	<hr>
 	<jsp:include page="application_list/application_list.jsp" flush="true" />
  </div>

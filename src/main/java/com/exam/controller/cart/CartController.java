@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.exam.dto.cart.CartDTO;
 import com.exam.dto.user.UserDTO;
+import com.exam.service.application_list.Application_listService;
 import com.exam.service.cart.CartService;
 
 @Controller
@@ -25,9 +26,11 @@ public class CartController {
     Logger logger = LoggerFactory.getLogger(CartController.class);
 
     CartService cartService;
+    Application_listService application_listService;
 
-    public CartController(CartService cartService) {
+    public CartController(CartService cartService, Application_listService application_listService) {
         this.cartService = cartService;
+        this.application_listService = application_listService;
     }
 
  // 카트 추가 기능
@@ -37,6 +40,11 @@ public class CartController {
 
         UserDTO user = (UserDTO) auth.getPrincipal();
         logger.debug("Logged in user: {}", user);
+        
+        if (application_listService.isDuplicateItem(user.getId(), cs_id)) {
+            redirectAttributes.addFlashAttribute("message", "이미 수강신청하셨습니다");
+            return "redirect:/applicationAddFail";
+        }
         
         // 중복 상품 체크
         if (cartService.isDuplicateItem(user.getId(), cs_id)) {
@@ -100,7 +108,7 @@ public class CartController {
 	        redirectAttributes.addFlashAttribute("message", "강의 추가에 실패했습니다.");
 	    }
 
-	    return "redirect:/home";
+	    return "redirect:/cartList";
 	}
     
     // 장바구니 전체 삭제
@@ -117,6 +125,6 @@ public class CartController {
 	        redirectAttributes.addFlashAttribute("message", "강의 추가에 실패했습니다.");
 	    }
 
-	    return "redirect:/home";
+	    return "redirect:/cartList";
 	}
 }
