@@ -11,7 +11,8 @@
 	</select>
 
 	<select id="idCheck" parameterType="string" resultType="User">
-		select * from tb_user where login_id=#{login_id}
+		select *
+		from tb_user where login_id=#{login_id}
 	</select>
 	
 	<select id="findUserName" parameterType="string" resultType="User">
@@ -21,18 +22,19 @@
 	<!-- Insert a new user -->
 	<insert id="save" parameterType="User">
 		INSERT INTO tb_user (login_id,
-		password, name, birth_date, email, phone,address1,address2,
+		password, name, birth_date, email, phone,post,address1,address2,
 		role)
 		VALUES
 		(#{login_id},
 		#{password}, #{name}, #{birth_date}, #{email},
-		#{phone},#{address1},#{address2}, #{role})
+		#{phone},#{post},#{address1},#{address2}, #{role})
 	</insert>
 
 	<!-- Select user by ID -->
 	<select id="findById" parameterType="int" resultType="User">
 		SELECT id,
-		login_id, password, name, birth_date, email, phone, address1,address2, role
+		login_id, password, name, birth_date, email, phone,
+		post,address1,address2, role
 		FROM
 		tb_user
 		WHERE id = #{id}
@@ -49,11 +51,13 @@
 		#{birth_date},
 		email = #{email},
 		phone = #{phone},
+		post = #{post},
 		address1 = #{address1},
 		address2 = #{address2},
 		role = #{role}
 		WHERE id
-		= #{id}
+		=
+		#{id}
 	</update>
 
 	<!-- Delete user by ID -->
@@ -62,5 +66,10 @@
 		WHERE id =
 		#{id}
 	</delete>
+	
+	 <!-- Select all users -->
+    <select id="selectAllUsers" resultType="User">
+        SELECT id, login_id, password, name, birth_date, email, phone, post, address1, address2, role
+        FROM tb_user
+    </select>
 </mapper>
-

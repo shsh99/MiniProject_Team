@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>메인홈페이지</title>
 <style type="text/css">
 .App {
 	text-align: center;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 label, input, button {
@@ -24,20 +23,19 @@ footer {
 	height: 40px;
 }
 </style>
-<link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css"
-	rel="stylesheet">
+<link rel="stylesheet"
+	href="webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+<script src="webjars/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<div class="App">
-		<!-- header 보여주기 -->
-		<jsp:include page="common/header.jsp" />
-
-		<!-- content 보여주기 -->
-		<jsp:include page="login_signup/signupForm.jsp" />
+		<jsp:include page="common/header.jsp" flush="true" /><br>
+		
+		<hr>
+		<jsp:include page="user/mypage.jsp" flush="true" />
 		
 			<!-- footer 보여주기 -->
 		<jsp:include page="common/footer.jsp" />
 	</div>
-
 </body>
 </html>

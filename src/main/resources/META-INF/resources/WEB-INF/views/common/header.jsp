@@ -9,8 +9,15 @@
 <style>
 </style>
 
-<header class="border-bottom border-light border-5 mb-5 p-2">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<header class="border-bottom border-light border-5 mb-0 py-3 px-2">
+	<div class="alert alert-dark" role="alert">
+		감사 할인 특가 이벤트, 인기 강의 30% 할인!<a href="#" class="alert-link"
+			style="margin-right: 180px; text-decoration: none;"> 자세히 보기 </a> 기본부터
+		실무까지! 현업 개발자에게 배우는 웹 개발<a href="#" class="alert-link"
+			style="text-decoration: none;"> 자세히 보기 </a>
+	</div>
+
+    <nav class="navbar navbar-expand-lg navbar-light light" style="padding-top: 20px; padding-bottom: 20px;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="home"><img
 				src="images/ssgonline.jpg" alt="Logo" style="height: 40px;"></a>
@@ -44,6 +51,7 @@
 				</form>
 
 			</div>
+			
 			<ul class="navbar-nav">
 				<!-- 인증이 안된 사용자 -->
 				<sec:authorize access="isAnonymous()">
@@ -60,15 +68,11 @@
 							id="navbarDropdownAdmin" role="button" data-bs-toggle="dropdown"
 							aria-expanded="false">관리자 메뉴</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownAdmin">
-<<<<<<< HEAD
-								<li><a class="dropdown-item" href="adminCourseList">강의 관리</a></li>
-=======
-							<li><a class="dropdown-item" href="mypage">관리자 정보</a></li>
+								<li><a class="dropdown-item" href="mypage">관리자 정보</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="#">강의 관리</a></li>
->>>>>>> branch 'main' of https://github.com/shsh99/MiniProject_Team.git
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#">회원 관리</a></li>
+								<li><a class="dropdown-item" href="adminUserList">회원 관리</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="logout">logout</a></li>
 							</ul></li>
@@ -83,7 +87,9 @@
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMypage">
 								<li><a class="dropdown-item" href="mypage">내 정보</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="applicationList">수강 목록</a></li>
+								<li><a class="dropdown-item" href="#">구매 내역</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="#">문의 내역</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="logout">logout</a></li>
 							</ul></li>
@@ -92,12 +98,8 @@
 			</ul>
 		</div>
 	</nav>
-	<div class="alert alert-dark" role="alert">
-		감사 할인 특가 이벤트, 인기 강의 30% 할인!<a href="#" class="alert-link"
-			style="margin-right: 200px; text-decoration: none;"> 자세히 보기 </a> 기본부터
-		실무까지! 현업 개발자에게 배우는 웹 개발<a href="#" class="alert-link"
-			style="text-decoration: none;"> 자세히 보기 </a>
-	</div>
+
+
 	<!-- Bootstrap JS 및 Popper.js 추가 -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

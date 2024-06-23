@@ -1,5 +1,6 @@
 package com.exam.mapper;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -17,7 +18,9 @@ public interface UserMapper {
 
 	public UserDTO findById(int id);
 
-	public int update(UserDTO user);
+	public void update(UserDTO user);
 
 	public int delete(int id);
+	
+	List<UserDTO> selectAllUsers();
 }
