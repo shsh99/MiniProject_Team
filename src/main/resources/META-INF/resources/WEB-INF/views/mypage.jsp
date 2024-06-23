@@ -29,13 +29,13 @@ footer {
 </head>
 <body>
 	<div class="App">
-		<jsp:include page="include/header.jsp" flush="true" /><br>
+		<jsp:include page="common/header.jsp" flush="true" /><br>
 		
 		<hr>
-		<jsp:include page="include/mypage.jsp" flush="true" />
+		<jsp:include page="user/mypage.jsp" flush="true" />
 		
 			<!-- footer 보여주기 -->
-		<jsp:include page="include/footer.jsp" />
+		<jsp:include page="common/footer.jsp" />
 	</div>
 </body>
 </html>

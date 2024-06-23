@@ -30,14 +30,14 @@ footer {
 	<div class="App">
 	
 		<!-- header 보여주기 -->
-		<jsp:include page="include/header.jsp" />
+		<jsp:include page="common/header.jsp" />
 
 		<!-- content 보여주기 -->
 
 		<jsp:include page="course/courseList.jsp" />
 
 		<!-- footer 보여주기 -->
-		<jsp:include page="include/footer.jsp" />
+		<jsp:include page="common/footer.jsp" />
 		
 	</div>
 </body>

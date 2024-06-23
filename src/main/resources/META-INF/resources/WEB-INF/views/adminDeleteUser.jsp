@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,15 +28,20 @@ footer {
 </head>
 <body>
 	<div class="App">
+	
 		<!-- header 보여주기 -->
 		<jsp:include page="common/header.jsp" />
 
 		<!-- content 보여주기 -->
-		<jsp:include page="login_signup/signupForm.jsp" />
-		
-			<!-- footer 보여주기 -->
-		<jsp:include page="common/footer.jsp" />
-	</div>
 
+		<jsp:include page="admin/adminDeleteUser.jsp" />
+
+		<!-- footer 보여주기 -->
+		<jsp:include page="common/footer.jsp" />
+		
+	</div>
 </body>
 </html>
+
+
+  
