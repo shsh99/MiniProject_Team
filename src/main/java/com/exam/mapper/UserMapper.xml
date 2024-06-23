@@ -62,4 +62,10 @@
 		WHERE id =
 		#{id}
 	</delete>
+	
+	 <!-- Select all users -->
+    <select id="selectAllUsers" resultType="User">
+        SELECT id, login_id, password, name, birth_date, email, phone, post, address1, address2, role
+        FROM tb_user
+    </select>
 </mapper>

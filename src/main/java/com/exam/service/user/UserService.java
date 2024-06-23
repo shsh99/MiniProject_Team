@@ -1,5 +1,6 @@
 package com.exam.service.user;
 
+import java.util.List;
 import java.util.Map;
 
 import com.exam.dto.user.UserDTO;
@@ -17,5 +18,7 @@ public interface UserService {
 	public void update(UserDTO user);
 
 	public int delete(int id);
+	
+	List<UserDTO> selectAllUsers();
 
 }

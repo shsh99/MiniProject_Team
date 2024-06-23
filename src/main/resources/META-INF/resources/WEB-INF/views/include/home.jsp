@@ -23,9 +23,12 @@
 </style>
 
 <div class="TodoApp">
-	<div class="container">
+
+		<!-- content 보여주기 -->
+
+		<jsp:include page="course/courseList.jsp" />
 		
-	</div>
+	
 </div>
 
 
