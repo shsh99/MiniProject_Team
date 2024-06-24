@@ -30,7 +30,7 @@ public class Application_listController {
         this.application_listService = application_listService;
     }
 
-    // 카트 추가 기능
+    // 수강 신청 기능
     @PostMapping("/applicationAdd")
     public String applicationAdd(@RequestParam("cs_id") int cs_id, RedirectAttributes redirectAttributes) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -61,25 +61,25 @@ public class Application_listController {
         }
     }
     
-    // 장바구니 추가 성공 페이지 이동
+    // 수강신청 성공 페이지 이동
     @GetMapping("/applicationAddSuccess")
     public String applicationAddSuccess() {
         return "applicationAddSuccess"; // JSP 파일의 경로와 이름
     }
     
-    // 장바구니 추가 성공 페이지 이동
+    // 수강신청 실패 페이지 이동
     @GetMapping("/applicationAddFail")
     public String applicationAddFail() {
         return "applicationAddFail"; // JSP 파일의 경로와 이름
     }
     
- // 장바구니 추가 성공 페이지 이동
+    // 수강신청 실패 페이지2 이동
     @GetMapping("/applicationAddFail2")
     public String applicationAddFail2() {
         return "applicationAddFail2"; // JSP 파일의 경로와 이름
     }
     
-    // 장바구니 페이지 이동
+    // 수강신청 목록 이동
     @GetMapping("/applicationList")
     public String applicationList(ModelMap model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -94,37 +94,5 @@ public class Application_listController {
         return "application_list"; // JSP 파일의 경로와 이름
     }
     
-    // 장바구니 삭제
-    @PostMapping("/deleteApplication")
-	public String deleteApplication(Application_listDTO application_listDTO,
-	                        BindingResult result,
-	                        RedirectAttributes redirectAttributes) {
-
-	    int dbResult = application_listService.deleteApplication(application_listDTO);
-
-	    if (dbResult > 0) {
-	        redirectAttributes.addFlashAttribute("message", "강의가 성공적으로 추가되었습니다.");
-	    } else {
-	        redirectAttributes.addFlashAttribute("message", "강의 추가에 실패했습니다.");
-	    }
-
-	    return "redirect:/home";
-	}
     
-    // 장바구니 전체 삭제
-    @PostMapping("/deleteAllApplication")
-	public String deleteAllApplication(Application_listDTO application_listDTO,
-	                        BindingResult result,
-	                        RedirectAttributes redirectAttributes) {
-
-	    int dbResult = application_listService.deleteAllApplication(application_listDTO);
-
-	    if (dbResult > 0) {
-	        redirectAttributes.addFlashAttribute("message", "강의가 성공적으로 추가되었습니다.");
-	    } else {
-	        redirectAttributes.addFlashAttribute("message", "강의 추가에 실패했습니다.");
-	    }
-
-	    return "redirect:/home";
-	}
 }

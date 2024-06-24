@@ -72,6 +72,8 @@
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="adminCourseList">강의 관리</a></li>
 								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="adminReviewList">리뷰 관리</a></li>
+								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="adminUserList">회원 관리</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="logout">logout</a></li>

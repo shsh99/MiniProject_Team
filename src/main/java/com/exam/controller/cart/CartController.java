@@ -33,7 +33,7 @@ public class CartController {
         this.application_listService = application_listService;
     }
 
- // 카트 추가 기능
+ // 장바구니 추가 기능
     @PostMapping("/cartAdd")
     public String cartAdd(@RequestParam("cs_id") int cs_id, RedirectAttributes redirectAttributes, Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();

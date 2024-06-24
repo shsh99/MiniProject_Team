@@ -171,7 +171,7 @@
 								<div class="sale-alert">${dto.sale}%할인</div>
 							</c:if>
 							<!-- 강의 제목 -->
-							<a href="courses-details.html" class="text-decoration-none">
+							<a href="courseRetrieve?id=${dto.id}" class="text-decoration-none">
 								<h5 class="course-title py-2 m-0">${dto.title}</h5>
 							</a>
 							<!-- 카드 텍스트 -->

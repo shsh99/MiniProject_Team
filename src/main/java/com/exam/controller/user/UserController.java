@@ -73,7 +73,7 @@ public class UserController {
 		user.setPassword(encptPw);
 
 		int n = userService.save(user);
-		return "redirect:home";
+		return "redirect:loginForm";
 	}
 
 	@GetMapping(value = { "/mypage" })

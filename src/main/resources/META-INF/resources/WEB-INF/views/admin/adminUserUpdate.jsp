@@ -163,8 +163,8 @@ color: #fff;
 				<label for="role" class="col-sm-2 col-form-label">역할</label>
 				<div class="col-auto">
 					<select class="form-select" id="role" name="role">
+						<option value="0">일반 사용자</option>
 						<option value="1">관리자</option>
-						<option value="2">일반 사용자</option>
 					</select>
 				</div>
 			</div>

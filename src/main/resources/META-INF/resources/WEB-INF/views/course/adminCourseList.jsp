@@ -51,8 +51,6 @@
 		</div>
 		<form action="deleteAllCourse" method="post">
 			<button type="submit" class="btn btn-warning">전체삭제</button>
-
-			<div class="btn btn-success m-5">전체삭제</div>
 		</form>
 	</div>
 </div>

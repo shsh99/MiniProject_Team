@@ -77,13 +77,13 @@ public class ReviewController {
         }
     }
     
- // 장바구니 추가 성공 페이지 이동
+    // 리뷰 추가 성공 페이지 이동
     @GetMapping("/reviewAddSuccess")
     public String reviewAddSuccess() {
         return "reviewAddSuccess"; // JSP 파일의 경로와 이름
     }
     
-    // 장바구니 추가 성공 페이지 이동
+    // 리뷰 추가 실패 페이지 이동
     @GetMapping("/reviewAddFail")
     public String reviewAddFail() {
         return "reviewAddFail"; // JSP 파일의 경로와 이름
@@ -117,7 +117,7 @@ public class ReviewController {
         return "adminReviewList";
     }
     
- // 강의 삭제 처리
+ // 리뷰 삭제 처리
  	@PostMapping("/deleteReview")
  	public String deleteCourse(ReviewDTO reviewDTO, BindingResult result, RedirectAttributes redirectAttributes) {
 
