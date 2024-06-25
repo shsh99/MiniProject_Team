@@ -24,7 +24,7 @@
 - `MyBatis`
 - `Spring Boot`
 - `Spring Security`
-- 'Tomcat'
+- `Tomcat`
 <br>
 
 ## 주요 기능
