@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,19 +19,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.exam.controller.cart.CartController;
-import com.exam.dto.cart.CartDTO;
-import com.exam.dto.course.CourseDTO;
 import com.exam.dto.review.ReviewDTO;
 import com.exam.dto.user.UserDTO;
 import com.exam.service.application_list.Application_listService;
-import com.exam.service.cart.CartService;
 import com.exam.service.review.ReviewService;
 
 @Controller
 public class ReviewController {
 	
-    Logger logger = LoggerFactory.getLogger(CartController.class);
+    Logger logger = LoggerFactory.getLogger(ReviewController.class);
 
 
     ReviewService reviewService;
@@ -45,7 +40,7 @@ public class ReviewController {
 
 	// 리뷰 추가 기능
     @PostMapping("/reviewAdd")
-    public String cartAdd(@Valid ReviewDTO reviewDTO, @RequestParam("cs_id") int cs_id, RedirectAttributes redirectAttributes) {
+    public String reviewAdd(@Valid ReviewDTO reviewDTO, @RequestParam("cs_id") int cs_id, RedirectAttributes redirectAttributes) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         UserDTO user = (UserDTO) auth.getPrincipal();
