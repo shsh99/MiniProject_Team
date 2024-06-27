@@ -1,7 +1,7 @@
 package com.exam.controller.admin;
 
-import java.util.List;
-
+import com.exam.dto.user.UserDTO;
+import com.exam.service.user.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.exam.dto.user.UserDTO;
-import com.exam.service.user.UserService;
+import java.util.List;
 
 @Controller
 public class AdminUserController {
